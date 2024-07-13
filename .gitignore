@@ -1,2 +1,2 @@
 BOT/
-*.env
+*secrets.toml
