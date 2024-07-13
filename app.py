@@ -3,17 +3,19 @@ from openai import OpenAI
 from PyPDF2 import PdfReader
 import os
 
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Initialize the OpenAI client
-API_KEY_ = os.environ.get("API_KEY_")
+# Initialize the OpenAI client using the secret from secrets.toml
+API_KEY_ = st.secrets["API_KEY_"]
 openai = OpenAI(
     api_key=API_KEY_,
     base_url="https://api.deepinfra.com/v1/openai"
 )
+
+# Initialize the OpenAI client
+# API_KEY_ = os.environ.get("API_KEY_")
+# openai = OpenAI(
+#     api_key=API_KEY_,
+#     base_url="https://api.deepinfra.com/v1/openai"
+# ) 
 
 def get_openai_response(message_history):
     """
